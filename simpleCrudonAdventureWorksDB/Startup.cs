@@ -8,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using simpleCrudonAdventureWorksDB.DB;
+using simpleCrudonAdventureWorksDB.Interfaces;
+using simpleCrudonAdventureWorksDB.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +33,7 @@ namespace simpleCrudonAdventureWorksDB
             string connectionString = Configuration.GetConnectionString("default");
             services.AddDbContext<AppDBContext>(c => c.UseSqlServer(connectionString));
             services.AddControllers();
+            services.AddScoped<IRepository, Repository<AppDBContext>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
