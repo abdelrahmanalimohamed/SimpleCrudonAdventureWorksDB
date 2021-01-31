@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using simpleCrudonAdventureWorksDB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace simpleCrudonAdventureWorksDB.DB
         {
             _options = options;
         }
-      //  public DbSet<member> members { get; set; }
+        public DbSet<Departments> Departments { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
