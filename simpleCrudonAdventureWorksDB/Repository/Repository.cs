@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using simpleCrudonAdventureWorksDB.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace simpleCrudonAdventureWorksDB.Repository
