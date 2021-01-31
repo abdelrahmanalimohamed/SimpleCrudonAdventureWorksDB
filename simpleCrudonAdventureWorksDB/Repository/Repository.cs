@@ -22,24 +22,27 @@ namespace simpleCrudonAdventureWorksDB.Repository
             _ = await this.DbContext.SaveChangesAsync();
         }
 
-        public Task DeleteAsync<T>(T entity) where T : class
+        public async Task DeleteAsync<T>(T entity) where T : class
         {
-            throw new NotImplementedException();
+            this.DbContext.Set<T>().Remove(entity);
+            _ = await this.DbContext.SaveChangesAsync();
         }
 
-        public Task<List<T>> SelectAll<T>() where T : class
+        public async Task<List<T>> SelectAll<T>() where T : class
         {
-            throw new NotImplementedException();
+            return await this.DbContext.Set<T>().ToListAsync();
         }
 
-        public Task<T> SelectById<T>(long id) where T : class
+        public async Task<T> SelectById<T>(long id) where T : class
         {
-            throw new NotImplementedException();
+            return await this.DbContext.Set<T>().FindAsync(id);
         }
 
-        public Task UpdateAsync<T>(T entity) where T : class
+        public async Task UpdateAsync<T>(T entity) where T : class
         {
-            throw new NotImplementedException();
+            this.DbContext.Set<T>().Update(entity);
+
+            _ = await this.DbContext.SaveChangesAsync();
         }
     }
 }
